@@ -1,6 +1,5 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Envio {
@@ -10,10 +9,7 @@ public class Envio {
     private LocalDateTime fechaEnvio;
     private LocalDateTime fechaEntrega;
     private String transportista;
-    private String numeroSeguimiento;
-    private BigDecimal costoEnvio;
-    private String estado;
-    private Venta venta;
+
     public Long getId() {
         return id;
     }
@@ -44,31 +40,4 @@ public class Envio {
     public void setTransportista(String transportista) {
         this.transportista = transportista;
     }
-    public String getNumeroSeguimiento() {
-        return numeroSeguimiento;
-    }
-    public void setNumeroSeguimiento(String numeroSeguimiento) {
-        this.numeroSeguimiento = numeroSeguimiento;
-    }
-    public BigDecimal getCostoEnvio() {
-        return costoEnvio;
-    }
-    public void setCostoEnvio(BigDecimal costoEnvio) {
-        this.costoEnvio = costoEnvio;
-    }
-    public String getEstado() {
-        return estado;
-    }
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    public Venta getVenta() {
-        return venta;
-    }
-    public void setVenta(Venta venta) {
-        this.venta = venta;
-    }
-
-    
-
 }

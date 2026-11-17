@@ -7,8 +7,7 @@ public class Cliente {
     private String apellido;
     private String cedula;
     private String telefono;
-    private String correo;
-    private String direccion;
+    
     
     public Long getId() {
         return id;

@@ -9,10 +9,9 @@ public class Producto {
     private String descripcion;
     private BigDecimal precio;
     private Integer stock;
-    private String categoria;
-    private Boolean activo;
+ 
 
-    
+
     public Long getId() {
         return id;
     }
@@ -43,18 +42,5 @@ public class Producto {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-    public String getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-    public Boolean getActivo() {
-        return activo;
-    }
-    public void setActivo(Boolean activo) {
-        this.activo = activo;
-    }
-
     
 }

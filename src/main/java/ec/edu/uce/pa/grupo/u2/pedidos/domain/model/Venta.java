@@ -11,8 +11,6 @@ public class Venta {
     private BigDecimal subtotal;
     private BigDecimal descuento;
     private BigDecimal total;
-    private String estado;
-    private Cliente cliente;
     
     public Long getId() {
         return id;
@@ -49,18 +47,6 @@ public class Venta {
     }
     public void setTotal(BigDecimal total) {
         this.total = total;
-    }
-    public String getEstado() {
-        return estado;
-    }
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    public Cliente getCliente() {
-        return cliente;
-    }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     

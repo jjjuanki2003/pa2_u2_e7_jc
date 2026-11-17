@@ -10,8 +10,7 @@ public class Pago {
     private LocalDateTime fechaPago;
     private String metodoPago;
     private String estado;
-    private String referencia;
-    private Venta venta;
+    
     public Long getId() {
         return id;
     }
@@ -42,19 +41,5 @@ public class Pago {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public String getReferencia() {
-        return referencia;
-    }
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
-    }
-    public Venta getVenta() {
-        return venta;
-    }
-    public void setVenta(Venta venta) {
-        this.venta = venta;
-    }
-
-
     
 }
