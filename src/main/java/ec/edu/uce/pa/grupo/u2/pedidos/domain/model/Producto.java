@@ -2,15 +2,27 @@ package ec.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity 
+@Table (name = "productos")
 public class Producto {
 
+    @Id 
+    @SequenceGenerator(name = "seq_producto", sequenceName = "seq_producto_db", allocationSize = 1)
     private Long id;
+    @Column (name = "prod_nombre")
     private String nombre;
+    @Column (name = "prod_descripcion")
     private String descripcion;
+    @Column (name = "prod_precio")
     private BigDecimal precio;
+    @Column (name = "prod_stock")
     private Integer stock;
- 
-
 
     public Long getId() {
         return id;

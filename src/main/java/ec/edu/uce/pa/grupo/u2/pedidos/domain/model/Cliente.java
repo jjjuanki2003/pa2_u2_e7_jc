@@ -1,11 +1,28 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table (name = "clientes") //nombre de la tabla en la base de datos
 public class Cliente {
 
+    @Id 
+    @SequenceGenerator (name = "seq_cliente", sequenceName = "seq_cliente_db", allocationSize = 1) //nombre de la secuencia en la base de datos
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "seq_cliente") //
     private Long id;
+    @Column(name = "cli_nombre") //nombre de la columna en la tabla
     private String nombre;
+    @Column(name = "cli_apellido") //nombre de la columna en la tabla
     private String apellido;
+    @Column(name = "cli_cedula") //nombre de la columna en la tabla
     private String cedula;
+    @Column(name = "cli_telefono") //nombre de la columna en la tabla
     private String telefono;
     
     
@@ -39,18 +56,7 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    public String getCorreo() {
-        return correo;
-    }
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
+
 
     
 }

@@ -3,13 +3,31 @@
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity 
+@Table (name = "ventas")
 public class Venta {
 
+    @Id 
+    @SequenceGenerator (name = "seq_venta", sequenceName = "seq_venta_db", allocationSize = 1)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "seq_venta")
     private Long id; 
+    @Column (name = "ven_numero_venta")
     private String numeroVenta;
+    @Column (name = "ven_fecha")
     private LocalDateTime fecha;
+    @Column (name = "ven_subtotal")
     private BigDecimal subtotal;
+    @Column (name = "ven_descuento")
     private BigDecimal descuento;
+    @Column (name = "ven_total")
     private BigDecimal total;
     
     public Long getId() {
