@@ -59,4 +59,15 @@ public class Pedido {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + ", getId()="
+                + getId() + ", getProducto()=" + getProducto() + ", getPrecio()=" + getPrecio() + ", getFecha()="
+                + getFecha() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+                + super.toString() + "]";
+    }
+
+
+    
 }

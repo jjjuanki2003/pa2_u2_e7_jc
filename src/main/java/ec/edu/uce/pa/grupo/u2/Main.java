@@ -1,6 +1,5 @@
 package ec.edu.uce.pa.grupo.u2;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import ec.edu.uce.pa.grupo.u2.pedidos.application.ClienteService;
@@ -9,17 +8,11 @@ import ec.edu.uce.pa.grupo.u2.pedidos.application.PagoService;
 import ec.edu.uce.pa.grupo.u2.pedidos.application.PedidoService;
 import ec.edu.uce.pa.grupo.u2.pedidos.application.ProductoService;
 import ec.edu.uce.pa.grupo.u2.pedidos.application.VentaService;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Cliente;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Envio;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pago;
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Producto;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Venta;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
 import jakarta.inject.Inject;
-
     
 
 @QuarkusMain 
@@ -50,6 +43,9 @@ public class Main implements QuarkusApplication {
     @Override
     public int run(String... args) throws Exception {
 
+    /*
+
+
         Cliente cliente = new Cliente();
         cliente.setNombre("Juanki");
         cliente.setApellido("Caranqui");
@@ -71,12 +67,6 @@ public class Main implements QuarkusApplication {
         pago.setEstado("Pagado");
         this.pagoService.guardar(pago);
 
-        Pedido pedido = new Pedido();
-        pedido.setProducto("pc");
-        pedido.setPrecio(200.0);
-        pedido.setFecha(LocalDateTime.now());
-        this.pedidoService.guardar(pedido);
-
         Producto producto = new Producto();
         producto.setNombre("Laptop");
         producto.setDescripcion("ASUS TUF GAMING");
@@ -91,6 +81,27 @@ public class Main implements QuarkusApplication {
         venta.setDescuento(new BigDecimal("0.08"));
         venta.setTotal(venta.getSubtotal().subtract(venta.getSubtotal().multiply(venta.getDescuento())));
         ventaService.guardar(venta);
+
+    */
+   //CREATE (insert)
+        Pedido pedido = new Pedido();
+        pedido.setProducto("producto 2");
+        pedido.setPrecio(500.0);
+        pedido.setFecha(LocalDateTime.now());
+        this.pedidoService.guardar(pedido);
+
+        //READ (find)
+        Pedido pedido2 = this.pedidoService.buscarPorId(2);
+
+        //UPDATE (update)
+        System.out.println("Valor anterior: " + pedido);
+        pedido.setPrecio(300.00);
+        this.pedidoService.actualizar(pedido);
+        
+        System.out.println("Pedido actualizado: " + this.pedidoService.buscarPorId(2));
+
+        //DELETE (delete)
+        this.pedidoService.eliminar(2);
         return 0;
 
 
