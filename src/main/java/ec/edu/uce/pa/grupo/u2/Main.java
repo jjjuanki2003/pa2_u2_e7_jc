@@ -1,6 +1,6 @@
 package ec.edu.uce.pa.grupo.u2;
 
-import java.time.LocalDateTime;
+import java.util.Optional;
 
 import ec.edu.uce.pa.grupo.u2.pedidos.application.ClienteService;
 import ec.edu.uce.pa.grupo.u2.pedidos.application.EnvioService;
@@ -84,24 +84,30 @@ public class Main implements QuarkusApplication {
 
     */
    //CREATE (insert)
+        //READ (find)
+        Optional<Pedido> pedido2 = this.pedidoService.buscarPorId(2);
+        if(pedido2.isPresent()) {
+            System.out.println("Pedido encontrado: " + pedido2.get());
+        } else {
+            System.out.println("Pedido no encontrado");
+        }
+
         Pedido pedido = new Pedido();
-        pedido.setProducto("producto 2");
-        pedido.setPrecio(500.0);
-        pedido.setFecha(LocalDateTime.now());
+        pedido.setProducto("Laptop");
+        pedido.setPrecio(888.8);
+        pedido.setFecha(java.time.LocalDateTime.now());
+        pedido.setNumero("PDD-001");
         this.pedidoService.guardar(pedido);
 
-        //READ (find)
-        Pedido pedido2 = this.pedidoService.buscarPorId(2);
 
-        //UPDATE (update)
-        System.out.println("Valor anterior: " + pedido);
-        pedido.setPrecio(300.00);
-        this.pedidoService.actualizar(pedido);
-        
-        System.out.println("Pedido actualizado: " + this.pedidoService.buscarPorId(2));
+        //READ By Number
+        Optional<Pedido> pedidoByNumero = this.pedidoService.buscarPorNumero("PDD-001");
+        if(pedidoByNumero.isPresent()) {
+            System.out.println("Pedido encontrado: " + pedidoByNumero.get());
+        } else {
+            System.out.println("Pedido no encontrado");
+        }
 
-        //DELETE (delete)
-        this.pedidoService.eliminar(2);
         return 0;
 
 

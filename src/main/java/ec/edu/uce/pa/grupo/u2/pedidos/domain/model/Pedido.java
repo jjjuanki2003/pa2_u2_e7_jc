@@ -27,6 +27,11 @@ public class Pedido {
     @Column (name = "pdd_fecha") //nombre de la columna en la tabla
     private LocalDateTime fecha;
 
+    @Column (name = "pdd_numero") //nombre de la columna en la tabla
+    private String numero;
+
+    
+
     // Getters and Setters
     public Integer getId() {
         return id;
@@ -60,13 +65,23 @@ public class Pedido {
         this.fecha = fecha;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
     @Override
     public String toString() {
-        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + ", getId()="
-                + getId() + ", getProducto()=" + getProducto() + ", getPrecio()=" + getPrecio() + ", getFecha()="
-                + getFecha() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-                + super.toString() + "]";
+        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + ", numero="
+                + numero + ", getId()=" + getId() + ", getProducto()=" + getProducto() + ", getPrecio()=" + getPrecio()
+                + ", getFecha()=" + getFecha() + ", getNumero()=" + getNumero() + ", getClass()=" + getClass()
+                + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
     }
+
+    
 
 
     
