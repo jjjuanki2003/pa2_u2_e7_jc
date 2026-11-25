@@ -1,5 +1,7 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.application;
 
+import java.util.Optional;
+
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pago;
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.repository.PagoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -17,8 +19,12 @@ public class PagoService {
         this.pagoRepository.create(pago);
     }
 
-    public Pago findById(Long id) {
+    public Optional<Pago> findById(Long id) {
         return this.pagoRepository.read(id);
+    }
+
+    public Optional<Pago> findByNumero(String numero) {
+        return this.pagoRepository.readByNumber(numero);
     }
 
     public void actualizar(Pago pago) {
@@ -26,6 +32,6 @@ public class PagoService {
     }
 
     public void eliminar(Long id) {
-        this.pagoRepository.read(id);
+        this.pagoRepository.delete(id);
     }
 }

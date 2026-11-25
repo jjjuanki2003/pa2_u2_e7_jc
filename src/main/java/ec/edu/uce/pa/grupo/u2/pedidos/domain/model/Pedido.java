@@ -76,13 +76,9 @@ public class Pedido {
     @Override
     public String toString() {
         return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + ", numero="
-                + numero + ", getId()=" + getId() + ", getProducto()=" + getProducto() + ", getPrecio()=" + getPrecio()
-                + ", getFecha()=" + getFecha() + ", getNumero()=" + getNumero() + ", getClass()=" + getClass()
-                + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+                + numero + "]";
     }
 
     
 
-
-    
 }

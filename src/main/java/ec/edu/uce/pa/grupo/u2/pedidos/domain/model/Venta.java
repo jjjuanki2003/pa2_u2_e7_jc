@@ -20,7 +20,7 @@ public class Venta {
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "seq_venta")
     private Long id; 
     @Column (name = "ven_numero_venta")
-    private Integer numeroVenta;
+    private String numeroVenta;
     @Column (name = "ven_fecha")
     private LocalDateTime fecha;
     @Column (name = "ven_subtotal")
@@ -36,10 +36,10 @@ public class Venta {
     public void setId(Long id) {
         this.id = id;
     }
-    public Integer getNumeroVenta() {
+    public String getNumeroVenta() {
         return numeroVenta;
     }
-    public void setNumeroVenta(Integer numeroVenta) {
+    public void setNumeroVenta(String numeroVenta) {
         this.numeroVenta = numeroVenta;
     }
     public LocalDateTime getFecha() {
@@ -65,6 +65,11 @@ public class Venta {
     }
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+    @Override
+    public String toString() {
+        return "Venta [id=" + id + ", numeroVenta=" + numeroVenta + ", fecha=" + fecha + ", subtotal=" + subtotal
+                + ", descuento=" + descuento + ", total=" + total + "]";
     }
 
     

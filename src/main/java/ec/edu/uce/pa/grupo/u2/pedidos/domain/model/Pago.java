@@ -28,7 +28,9 @@ public class Pago {
     private String metodoPago;
     @Column (name = "pag_estado")
     private String estado;
-    
+    @Column(name = "pag_numero")
+    private String numero;
+
     public Long getId() {
         return id;
     }
@@ -59,5 +61,19 @@ public class Pago {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    public String getNumero() {
+        return numero;
+    }
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
+    @Override
+    public String toString() {
+        return "Pago [id=" + id + ", monto=" + monto + ", fechaPago=" + fechaPago + ", metodoPago=" + metodoPago
+                + ", estado=" + estado + ", numero=" + numero + "]";
+    }
+    
+    
     
 }

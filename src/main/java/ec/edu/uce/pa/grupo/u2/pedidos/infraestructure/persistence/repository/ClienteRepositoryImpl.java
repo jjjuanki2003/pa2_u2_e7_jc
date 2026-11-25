@@ -1,10 +1,13 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.infraestructure.persistence.repository;
 
+import java.util.Optional;
+
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Cliente;
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.repository.ClienteRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 @ApplicationScoped 
 
@@ -19,8 +22,22 @@ public class ClienteRepositoryImpl implements ClienteRepository{
     }
 
     @Override
-    public Cliente read(Long id) {
-        return entityManager.find(Cliente.class, id);
+    public Optional<Cliente> read(Long id) {
+        Cliente cliente = entityManager.find(Cliente.class, id);
+        return Optional.ofNullable(cliente);
+    }
+
+    @Override
+    public Optional<Cliente> readByName(String nombre) {
+        TypedQuery<Cliente> query = this.entityManager.createQuery("SELECT c FROM Cliente c WHERE c.nombre = :nombre", Cliente.class);
+        query.setParameter("nombre", nombre);
+        return Optional.ofNullable(query.getSingleResult());
+    }
+
+    @Override
+    public Optional<Cliente> readAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'readAll'");
     }
 
     @Override
@@ -30,7 +47,9 @@ public class ClienteRepositoryImpl implements ClienteRepository{
 
     @Override
     public void delete(Long id) {
-        entityManager.remove(this.read(id));
+        read(id).ifPresent(entityManager::remove);
     }
+
+    
 
 }

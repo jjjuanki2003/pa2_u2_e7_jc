@@ -56,4 +56,11 @@ public class Envio {
     public void setTransportista(String transportista) {
         this.transportista = transportista;
     }
+    @Override
+    public String toString() {
+        return "Envio [id=" + id + ", direccionDestino=" + direccionDestino + ", fechaEnvio=" + fechaEnvio
+                + ", fechaEntrega=" + fechaEntrega + ", transportista=" + transportista + "]";
+    }
+
+    
 }

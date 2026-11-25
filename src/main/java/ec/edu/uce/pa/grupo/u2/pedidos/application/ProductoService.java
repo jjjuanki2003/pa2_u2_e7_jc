@@ -1,5 +1,7 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.application;
 
+import java.util.Optional;
+
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Producto;
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.repository.ProductoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -17,8 +19,12 @@ public class ProductoService {
         this.pedidoRepository.create(producto);
     }
 
-    public Producto findById(Long id) {
+    public Optional<Producto> findById(Long id) {
         return this.pedidoRepository.read(id);
+    }
+
+    public Optional<Producto> findByName(String nombre){ 
+        return this.pedidoRepository.readByNombre(nombre);
     }
 
     public void actualizar(Producto producto) {
