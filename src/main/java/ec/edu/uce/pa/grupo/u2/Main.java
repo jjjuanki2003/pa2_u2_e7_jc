@@ -1,6 +1,7 @@
 package ec.edu.uce.pa.grupo.u2;
 
 import java.util.Optional;
+import java.util.List;
 
 import ec.edu.uce.pa.grupo.u2.pedidos.application.ClienteService;
 import ec.edu.uce.pa.grupo.u2.pedidos.application.EnvioService;
@@ -99,6 +100,12 @@ public class Main implements QuarkusApplication {
         pedido.setNumero("PDD-001");
         this.pedidoService.guardar(pedido);
 
+        Pedido pedido3 = new Pedido();
+        pedido3.setProducto("Laptop");
+        pedido3.setPrecio(888.8);
+        pedido3.setFecha(java.time.LocalDateTime.now());
+        pedido3.setNumero("PDD-002");
+        this.pedidoService.guardar(pedido3);
 
         //READ By Number
         Optional<Pedido> pedidoByNumero = this.pedidoService.buscarPorNumero("PDD-001");
@@ -108,8 +115,26 @@ public class Main implements QuarkusApplication {
             System.out.println("Pedido no encontrado");
         }
 
-        return 0;
 
+
+        Optional<Pedido> pedidoByNymeroNativo = this.pedidoService.buscarPorNumeroNative("PDD-002");
+        if(pedidoByNymeroNativo.isPresent()) {
+            System.out.println("NATIVE Pedido encontrado: " + pedidoByNymeroNativo.get());
+        } else {
+            System.out.println("No se encontró pedido");
+        }
+
+        List<Pedido> pedidos = pedidoService.buscarTodos();
+        for(Pedido p: pedidos) {
+            System.out.println(p);
+        }
+
+        List<Pedido> pedido4 = pedidoService.buscarTodosNative();
+        for (Pedido p: pedido4 ) {
+            System.out.println(p);
+        }
+
+        return 0;
 
     }
 
